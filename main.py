@@ -1,7 +1,59 @@
 from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
+import os
+import shutil
 
-import sys
+
+def plagins_editor():
+    '''Функция создает папку с названием бренда.
+    Далее проходит по списку ТТ, создает в этой папке папку с названием ТТ
+    и перемещает в нее исходный плагин'''
+
+    stores = text_edit.toPlainText().split('\n')
+    key = line_api.text().strip()
+    brand = line_brand.text().strip()
+
+    os.mkdir(brand)
+    for t_name in stores:
+        shutil.copytree('Донор', f'{brand}/{t_name}')
+        config_changer(brand, t_name, key)
+
+
+def config_changer(brand, t_name, key):
+    '''Функция редактирует файл конфигурации плагина, подставляя нужные значения'''
+
+    global shop_code
+
+    with open(f'{brand}/{t_name}/Resto.Front.Api.CloudLoyalty.V6.1.0.84/Resto.Front.Api.CloudLoyalty.dll.config',
+              'r', encoding='utf-8') as infile:
+        a = infile.readlines()
+        res_list = []
+
+        for i in a:
+            if 'X-Processing-Key' in i:
+                b = i.split('X-Processing-Key')
+                i = f'{key}'.join(b)
+            if 'Код торговой точки' in i:
+                b = i.split('Код торговой точки')
+                i = f'{shop_code}'.join(b)
+                shop_code += 1
+            if 'Название торговой точки' in i:
+                b = i.split('Название торговой точки')
+                i = f'{t_name}'.join(b)
+            res_list.append(i)
+
+        with open(f'{brand}/{t_name}/Resto.Front.Api.CloudLoyalty.V6.1.0.84/Resto.Front.Api.CloudLoyalty.dll.config',
+                  'w', encoding='utf-8') as infile:
+            infile.writelines(res_list)
+
+
+shop_code = 1
+
+
+def abcd():
+    a = text_edit.toPlainText()
+    print(a.split('\n'))
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication([])
@@ -92,6 +144,7 @@ if __name__ == '__main__':
                 font-size: 14px;
              }
          """)
+    button1.clicked.connect(plagins_editor)
 
     '''=== Наполнение контейнера ==='''
 
