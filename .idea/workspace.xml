@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="">
+    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС">
+      <change afterPath="$PROJECT_DIR$/MaKo_icon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maxma_iiko_collab_icon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/MAXMA_IIKO_PLUGINS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MAXMA_IIKO_PLUGINS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Oxymourne&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Oxymourne/iiko_plugins&quot;,
+    &quot;accountId&quot;: &quot;394b0f2c-d1d1-4e46-8326-e722d221d43f&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -42,10 +56,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Макс/Desktop/Python_projects/MAXMA_IIKO_PLUGINS",
+    "last_opened_file_path": "C:/Users/mak90/PycharmProjects/iiko_plugins_maxma",
     "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mak90\PycharmProjects\iiko_plugins_maxma" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="MAXMA_IIKO_PLUGINS" />
@@ -73,7 +92,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-python-sdk-ce3d9afa04ac-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.20224.347" />
       </set>
     </attachedChunks>
   </component>
@@ -86,6 +105,23 @@
       <option name="presentableId" value="Default" />
       <updated>1743767170878</updated>
     </task>
+    <task id="LOCAL-00001" summary="Итоговый вариант альфы">
+      <option name="closed" value="true" />
+      <created>1746020755352</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746020755352</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС">
+      <option name="closed" value="true" />
+      <created>1746451748087</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746451748087</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,5 +134,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Итоговый вариант альфы" />
+    <MESSAGE value="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС" />
   </component>
 </project>
