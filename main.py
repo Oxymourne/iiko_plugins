@@ -4,6 +4,10 @@ import os
 import shutil
 
 
+class MyError(Exception):
+    pass
+
+
 def plagins_editor(shop_code):
     '''Функция создает папку с названием бренда.
     Далее проходит по списку ТТ, создает в этой папке папку с названием ТТ
@@ -56,24 +60,38 @@ def config_changer(brand, t_name, key, shop_code, port):
             infile.writelines(res_list)
 
 
-def make_shop_code():
-    if line_shopcode.text() != '' and int(line_shopcode.text()) > 1:
+def make_shop_code() -> int:
+    '''Обрабатываем значение введенное в поле Начальный код точек
+    Если значение текст или меньше 1, возбуждаем исключение
+    Если значение - целое число больше 0, то возвращаем его'''
+
+    try:
         code = int(line_shopcode.text())
+    except:
+        raise MyError('Значение должно быть числом больше 0')
     else:
-        code = 1
-    return code
+        if code < 1:
+            raise MyError('Значение должно быть числом больше 0')
+        else:
+            return code
 
 
 def start_func():
-    shop_code = make_shop_code()
-    plagins_editor(shop_code)
+    try:
+        text_errors.clear()
+        shop_code = make_shop_code()
+    except MyError as e:
+        message_error = f'Код точки: {e}'
+        text_errors.append(message_error)
+    else:
+        plagins_editor(shop_code)
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication([])
 
     window = QtWidgets.QMainWindow()
-    window.setWindowTitle("MAXMA plugins for IIKO")
+    window.setWindowTitle("MaKo v1.1")
     window.setFixedSize(800, 600)
     window.setStyleSheet("background-color: #4AD8FB;")
 
@@ -83,9 +101,24 @@ if __name__ == '__main__':
     '''=== Создаем поле для ввода текста ==='''
 
     text_edit = QtWidgets.QTextEdit()
-    text_edit.setFixedSize(330, 490)
 
     text_edit.setStyleSheet("""
+         QTextEdit {
+            color: #000000;  /* Цвет текста */
+             background-color: #FFFFFF;  /* Цвет фона */
+             font-size: 14px;
+             border: 2px solid #7f8c8d;  /* Рамка (опционально) */
+             border-radius: 10px;
+         }
+         QTextEdit::cursor {
+            background-color: #000000;  /* Цвет курсора */
+            width: 2px;  /* Толщина курсора */
+         }
+     """)
+
+    text_errors = QtWidgets.QTextEdit()
+    text_errors.setReadOnly(True)
+    text_errors.setStyleSheet("""
          QTextEdit {
             color: #000000;  /* Цвет текста */
              background-color: #FFFFFF;  /* Цвет фона */
@@ -117,6 +150,8 @@ if __name__ == '__main__':
 
     label_port = QtWidgets.QLabel('Порт для Waiter')
     label_port.setStyleSheet("margin: 10px;")
+
+    label_error = QtWidgets.QLabel('==ОШИБКИ==')
 
     '''=== Создаем строки ввода ==='''
 
@@ -202,18 +237,20 @@ if __name__ == '__main__':
 
     grid = QtWidgets.QGridLayout()
     grid.addWidget(label_text, 0, 0, alignment=Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignVCenter)
-    grid.addWidget(text_edit, 1, 0, 5, 1)
     grid.addWidget(label_api, 0, 1, alignment=Qt.AlignmentFlag.AlignVCenter)
     grid.addWidget(label_brand, 1, 1, alignment=Qt.AlignmentFlag.AlignVCenter)
     grid.addWidget(label_sms, 4, 1, alignment=Qt.AlignmentFlag.AlignVCenter)
     grid.addWidget(label_shopcode, 3, 1, alignment=Qt.AlignmentFlag.AlignVCenter)
     grid.addWidget(label_port, 2, 1, alignment=Qt.AlignmentFlag.AlignVCenter)
+    grid.addWidget(label_error, 5, 1, 1, 2, alignment=Qt.AlignmentFlag.AlignHCenter)
+    grid.addWidget(text_edit, 1, 0, 6, 1)
+    grid.addWidget(text_errors, 6, 1, 1, 2)
     grid.addWidget(line_api, 0, 2)
     grid.addWidget(line_brand, 1, 2)
     grid.addWidget(line_shopcode, 3, 2)
     grid.addWidget(line_port, 2, 2)
     grid.addWidget(check_sms, 4, 2)
-    grid.addWidget(button1, 6, 2)
+    grid.addWidget(button1, 7, 2)
 
     central_widget.setLayout(grid)
 
