@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС">
-      <change afterPath="$PROJECT_DIR$/MaKo_icon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maxma_iiko_collab_icon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MAXMA_IIKO_PLUGINS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MAXMA_IIKO_PLUGINS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Иконки приложения">
+      <change afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -55,7 +56,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "copy-main",
     "last_opened_file_path": "C:/Users/mak90/PycharmProjects/iiko_plugins_maxma",
     "settings.editor.selected.configurable": "advanced.settings"
   }
@@ -121,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746451748087</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавлено:&#10;1. Иконки приложения">
+      <option name="closed" value="true" />
+      <created>1746539050480</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746539050480</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,7 +138,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="copy-main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -138,6 +159,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Итоговый вариант альфы" />
     <MESSAGE value="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС" />
+    <MESSAGE value="Добавлено:&#10;1. Иконки приложения" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Иконки приложения" />
   </component>
 </project>
