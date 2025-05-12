@@ -1,5 +1,6 @@
 from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
+from datetime import datetime
 import os
 import shutil
 
@@ -13,7 +14,9 @@ def plagins_editor(shop_code):
     Далее проходит по списку ТТ, создает в этой папке папку с названием ТТ
     и перемещает в нее исходный плагин'''
 
-    stores = text_edit.toPlainText().split('\n')
+    stores = text_edit.toPlainText().strip().split('\n')
+    stores = list(map(lambda x: x.strip(), stores))
+
     key = line_api.text().strip()
     brand = line_brand.text().strip()
     port = line_port.text().strip()
@@ -77,14 +80,30 @@ def make_shop_code() -> int:
 
 
 def start_func():
-    try:
-        text_errors.clear()
-        shop_code = make_shop_code()
-    except MyError as e:
-        message_error = f'Код точки: {e}'
-        text_errors.append(message_error)
-    else:
-        plagins_editor(shop_code)
+    current_date = datetime.strftime(datetime.now(), '%d.%m.%Y %H:%M:%S')
+    log = []
+    with open('logs.txt', 'a', encoding='utf-8') as log_outfile:
+        try:
+            try:
+                text_errors.clear()
+                shop_code = make_shop_code()
+            except MyError as e:
+                message_error = f'Код точки: {e}'
+                text_errors.append(message_error)
+            else:
+                plagins_editor(shop_code)
+        except Exception as e:
+            log.append(f'{current_date}\n')
+            log.append(f'Тип ошибки: {type(e).__name__}\n')
+            log.append(f'Текст ошибки: {e}\n')
+            log.append(f'{'='*20}\n')
+            log_outfile.writelines(log)
+        else:
+            log.append(f'{current_date}\n')
+            log.append('Плагины успешно созданы\n')
+            log.append(f'{'=' * 20}\n')
+            log_outfile.writelines(log)
+
 
 
 if __name__ == '__main__':
@@ -104,15 +123,15 @@ if __name__ == '__main__':
 
     text_edit.setStyleSheet("""
          QTextEdit {
-            color: #000000;  /* Цвет текста */
-             background-color: #FFFFFF;  /* Цвет фона */
+            color: #000000;
+             background-color: #FFFFFF;
              font-size: 14px;
-             border: 2px solid #7f8c8d;  /* Рамка (опционально) */
+             border: 2px solid #7f8c8d;
              border-radius: 10px;
          }
          QTextEdit::cursor {
-            background-color: #000000;  /* Цвет курсора */
-            width: 2px;  /* Толщина курсора */
+            background-color: #000000;
+            width: 2px;
          }
      """)
 
@@ -120,15 +139,15 @@ if __name__ == '__main__':
     text_errors.setReadOnly(True)
     text_errors.setStyleSheet("""
          QTextEdit {
-            color: #000000;  /* Цвет текста */
-             background-color: #FFFFFF;  /* Цвет фона */
+            color: #000000;
+             background-color: #FFFFFF;
              font-size: 14px;
-             border: 2px solid #7f8c8d;  /* Рамка (опционально) */
+             border: 2px solid #7f8c8d;
              border-radius: 10px;
          }
          QTextEdit::cursor {
-            background-color: #000000;  /* Цвет курсора */
-            width: 2px;  /* Толщина курсора */
+            background-color: #000000;
+            width: 2px;
          }
      """)
 
@@ -158,30 +177,30 @@ if __name__ == '__main__':
     line_api = QtWidgets.QLineEdit()
     line_api.setStyleSheet("""
              QLineEdit {
-                color: #000000;  /* Цвет текста */
-                 background-color: #FFFFFF;  /* Цвет фона */
+                color: #000000;
+                 background-color: #FFFFFF;
                  font-size: 14px;
-                 border: 2px solid #7f8c8d;  /* Рамка (опционально) */
+                 border: 2px solid #7f8c8d;
                  border-radius: 5px;
              }
              QLineEdit::cursor {
-                background-color: #000000;  /* Цвет курсора */
-                width: 2px;  /* Толщина курсора */
+                background-color: #000000;
+                width: 2px;
              }
          """)
 
     line_brand = QtWidgets.QLineEdit()
     line_brand.setStyleSheet("""
                  QLineEdit {
-                    color: #000000;  /* Цвет текста */
-                     background-color: #FFFFFF;  /* Цвет фона */
+                    color: #000000;
+                     background-color: #FFFFFF;
                      font-size: 14px;
-                     border: 2px solid #7f8c8d;  /* Рамка (опционально) */
+                     border: 2px solid #7f8c8d;
                      border-radius: 5px;
                  }
                  QLineEdit::cursor {
-                    background-color: #000000;  /* Цвет курсора */
-                    width: 2px;  /* Толщина курсора */
+                    background-color: #000000;
+                    width: 2px;
                  }
              """)
 
@@ -189,15 +208,15 @@ if __name__ == '__main__':
     line_shopcode.setFixedWidth(35)
     line_shopcode.setStyleSheet("""
                  QLineEdit {
-                    color: #000000;  /* Цвет текста */
-                     background-color: #FFFFFF;  /* Цвет фона */
+                    color: #000000;
+                     background-color: #FFFFFF;
                      font-size: 14px;
-                     border: 2px solid #7f8c8d;  /* Рамка (опционально) */
+                     border: 2px solid #7f8c8d;
                      border-radius: 5px;
                  }
                  QLineEdit::cursor {
-                    background-color: #000000;  /* Цвет курсора */
-                    width: 2px;  /* Толщина курсора */
+                    background-color: #000000;
+                    width: 2px;
                  }
              """)
 
@@ -205,15 +224,15 @@ if __name__ == '__main__':
     line_port.setFixedWidth(100)
     line_port.setStyleSheet("""
                  QLineEdit {
-                    color: #000000;  /* Цвет текста */
-                     background-color: #FFFFFF;  /* Цвет фона */
+                    color: #000000;
+                     background-color: #FFFFFF;
                      font-size: 14px;
-                     border: 2px solid #7f8c8d;  /* Рамка (опционально) */
+                     border: 2px solid #7f8c8d;
                      border-radius: 5px;
                  }
                  QLineEdit::cursor {
-                    background-color: #000000;  /* Цвет курсора */
-                    width: 2px;  /* Толщина курсора */
+                    background-color: #000000;
+                    width: 2px;
                  }
              """)
 
@@ -226,8 +245,8 @@ if __name__ == '__main__':
     button1 = QtWidgets.QPushButton('Сделать плагины')
     button1.setStyleSheet("""
              QPushButton {
-                color: #000000;  /* Цвет текста */
-                background-color: #FFFFFF;  /* Цвет фона */
+                color: #000000;
+                background-color: #FFFFFF;
                 font-size: 14px;
              }
          """)

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Иконки приложения">
-      <change afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
+    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок">
+      <change afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +44,9 @@
     &quot;accountId&quot;: &quot;394b0f2c-d1d1-4e46-8326-e722d221d43f&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Test.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -52,6 +59,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.Functions.executor": "Run",
+    "Python.Test.executor": "Run",
+    "Python.functions.executor": "Run",
     "Python.global_algorithm.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -130,10 +139,46 @@
       <option name="project" value="LOCAL" />
       <updated>1746539050480</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Добавлено:&#10;1. Иконки приложения">
+      <option name="closed" value="true" />
+      <created>1746625812772</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746625812772</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок">
+      <option name="closed" value="true" />
+      <created>1746631918246</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746631918275</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="copy-main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -160,6 +205,7 @@
     <MESSAGE value="Итоговый вариант альфы" />
     <MESSAGE value="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС" />
     <MESSAGE value="Добавлено:&#10;1. Иконки приложения" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Иконки приложения" />
+    <MESSAGE value="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок" />
   </component>
 </project>
