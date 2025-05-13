@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок">
-      <change afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
+    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Логирование&#10;Исправлено:&#10;1. Подчищаются лишние пробелы, при вводе точек продаж">
+      <change afterPath="$PROJECT_DIR$/exceptions_module.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MaKo_icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/images/MaKo_icon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resto.Front.Api.CloudLoyalty.dll.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maxma_iiko_collab_icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/images/maxma_iiko_collab_icon.ico" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +58,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Functions.executor": "Run",
-    "Python.Test.executor": "Run",
-    "Python.functions.executor": "Run",
-    "Python.global_algorithm.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "copy-main",
-    "last_opened_file_path": "C:/Users/mak90/PycharmProjects/iiko_plugins_maxma",
-    "settings.editor.selected.configurable": "advanced.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Functions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.global_algorithm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;copy-main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mak90/PycharmProjects/iiko_plugins_maxma&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mak90\PycharmProjects\iiko_plugins_maxma" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mak90\PycharmProjects\iiko_plugins_maxma\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -155,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746631918275</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавлено:&#10;1. Логирование&#10;Исправлено:&#10;1. Подчищаются лишние пробелы, при вводе точек продаж">
+      <option name="closed" value="true" />
+      <created>1747059894000</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747059894000</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,6 +219,7 @@
     <MESSAGE value="Добавлено:&#10;1. Строка для ввода Порта&#10;2. Строка для ввода Начального кода точек&#10;3. Настройка списания по СМС" />
     <MESSAGE value="Добавлено:&#10;1. Иконки приложения" />
     <MESSAGE value="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок" />
+    <MESSAGE value="Добавлено:&#10;1. Логирование&#10;Исправлено:&#10;1. Подчищаются лишние пробелы, при вводе точек продаж" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Логирование&#10;Исправлено:&#10;1. Подчищаются лишние пробелы, при вводе точек продаж" />
   </component>
 </project>

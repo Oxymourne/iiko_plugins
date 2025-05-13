@@ -1,102 +1,49 @@
 from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
 from datetime import datetime
-import os
-import shutil
+from functions import *
+from exceptions_module import *
 
 
-class MyError(Exception):
-    pass
 
+def values_from_fields() -> tuple[list, str, str, int, bool]:
+    '''В этой функции, мы получаем информацию со всех полей.
+    Возвращаем кортеж с полученными значениями'''
 
-def plagins_editor(shop_code):
-    '''Функция создает папку с названием бренда.
-    Далее проходит по списку ТТ, создает в этой папке папку с названием ТТ
-    и перемещает в нее исходный плагин'''
+    user_stores = text_edit.toPlainText().strip().split('\n')
+    user_stores = list(map(lambda x: x.strip(), user_stores))
 
-    stores = text_edit.toPlainText().strip().split('\n')
-    stores = list(map(lambda x: x.strip(), stores))
+    user_api_key = line_api.text().strip()
+    user_brand_name = line_brand.text().strip()
+    user_port = line_port.text().strip()
+    sms = check_sms.isChecked()
 
-    key = line_api.text().strip()
-    brand = line_brand.text().strip()
-    port = line_port.text().strip()
-
-    os.mkdir(brand)
-    for t_name in stores:
-        shutil.copytree('Донор', f'{brand}/{t_name}')
-        config_changer(brand, t_name, key, shop_code, port)
-        shop_code += 1
-
-
-def config_changer(brand, t_name, key, shop_code, port):
-    '''Функция редактирует файл конфигурации плагина, подставляя нужные значения'''
-
-    with open(f'{brand}/{t_name}/Resto.Front.Api.CloudLoyalty.V6.1.0.84/Resto.Front.Api.CloudLoyalty.dll.config',
-              'r', encoding='utf-8') as infile:
-        a = infile.readlines()
-        res_list = []
-
-        for i in a:
-            if 'X-Processing-Key' in i:
-                b = i.split('X-Processing-Key')
-                i = f'{key}'.join(b)
-            if 'Код торговой точки' in i:
-                b = i.split('Код торговой точки')
-                i = f'{shop_code}'.join(b)
-            if 'Название торговой точки' in i:
-                b = i.split('Название торговой точки')
-                i = f'{t_name}'.join(b)
-            if 'send_sms' in i:
-                row_index = a.index(i) + 1
-                b = a[row_index].split('False')
-                a[row_index] = f'{check_sms.isChecked()}'.join(b)
-            if 'server_port' in i:
-                if port != '':
-                    row_index = a.index(i) + 1
-                    b = a[row_index].split('0')
-                    a[row_index] = f'{port}'.join(b)
-
-            res_list.append(i)
-
-        with open(f'{brand}/{t_name}/Resto.Front.Api.CloudLoyalty.V6.1.0.84/Resto.Front.Api.CloudLoyalty.dll.config',
-                  'w', encoding='utf-8') as infile:
-            infile.writelines(res_list)
-
-
-def make_shop_code() -> int:
-    '''Обрабатываем значение введенное в поле Начальный код точек
-    Если значение текст или меньше 1, возбуждаем исключение
-    Если значение - целое число больше 0, то возвращаем его'''
-
-    try:
-        code = int(line_shopcode.text())
-    except:
-        raise MyError('Значение должно быть числом больше 0')
-    else:
-        if code < 1:
-            raise MyError('Значение должно быть числом больше 0')
-        else:
-            return code
+    return user_stores, user_api_key, user_brand_name, user_port, sms
 
 
 def start_func():
+    '''Стартовая функция, в которой мы:
+    1. Проверяем, что значение в поле "Стартовый код" введено корректно
+    2. Запускаем основной алгоритм plagins_editor
+    3. Формируем логи по итогу работы
+    '''
     current_date = datetime.strftime(datetime.now(), '%d.%m.%Y %H:%M:%S')
     log = []
     with open('logs.txt', 'a', encoding='utf-8') as log_outfile:
         try:
             try:
                 text_errors.clear()
-                shop_code = make_shop_code()
+                shop_code = make_shop_code(line_shopcode.text())
             except MyError as e:
                 message_error = f'Код точки: {e}'
                 text_errors.append(message_error)
             else:
-                plagins_editor(shop_code)
+                plagins_editor(shop_code, *values_from_fields())
         except Exception as e:
             log.append(f'{current_date}\n')
             log.append(f'Тип ошибки: {type(e).__name__}\n')
             log.append(f'Текст ошибки: {e}\n')
-            log.append(f'{'='*20}\n')
+            log.append(f'{'=' * 20}\n')
             log_outfile.writelines(log)
         else:
             log.append(f'{current_date}\n')
@@ -105,14 +52,13 @@ def start_func():
             log_outfile.writelines(log)
 
 
-
 if __name__ == '__main__':
     app = QtWidgets.QApplication([])
 
     window = QtWidgets.QMainWindow()
     window.setWindowTitle("MaKo v1.1")
     window.setFixedSize(800, 600)
-    window.setStyleSheet("background-color: #4AD8FB;")
+    window.setStyleSheet("background-color: #F4F7F9;")
 
     central_widget = QtWidgets.QWidget()
     window.setCentralWidget(central_widget)
@@ -123,10 +69,10 @@ if __name__ == '__main__':
 
     text_edit.setStyleSheet("""
          QTextEdit {
-            color: #000000;
+            color: #1F2937;
              background-color: #FFFFFF;
              font-size: 14px;
-             border: 2px solid #7f8c8d;
+             border: 2px solid #D1D9E6;
              border-radius: 10px;
          }
          QTextEdit::cursor {
@@ -142,7 +88,7 @@ if __name__ == '__main__':
             color: #000000;
              background-color: #FFFFFF;
              font-size: 14px;
-             border: 2px solid #7f8c8d;
+             border: 2px solid #D1D9E6;
              border-radius: 10px;
          }
          QTextEdit::cursor {
@@ -154,23 +100,60 @@ if __name__ == '__main__':
     '''=== Создаем лейблы ==='''
 
     label_text = QtWidgets.QLabel('Список торговых точек')
+    label_text.setStyleSheet("""
+        color: #2E3A59;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px;
+    """)
 
     label_api = QtWidgets.QLabel('API ключ')
-    label_api.setStyleSheet("margin: 10px;")
+    label_api.setStyleSheet("""
+        color: #2E3A59;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px;
+    """)
 
     label_brand = QtWidgets.QLabel('Название бренда')
-    label_brand.setStyleSheet("margin: 10px;")
+    label_brand.setStyleSheet("""
+        color: #2E3A59;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px;
+    """)
 
     label_sms = QtWidgets.QLabel('Списание по СМС')
-    label_sms.setStyleSheet("margin: 10px;")
+    label_sms.setStyleSheet("""
+        color: #2E3A59;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px;
+    """)
 
     label_shopcode = QtWidgets.QLabel('Начальный код точек')
-    label_shopcode.setStyleSheet("margin: 10px;")
+    label_shopcode.setStyleSheet("""
+        color: #2E3A59;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px;
+    """)
 
     label_port = QtWidgets.QLabel('Порт для Waiter')
-    label_port.setStyleSheet("margin: 10px;")
+    label_port.setStyleSheet("""
+        color: #2E3A59;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px;
+    """)
 
     label_error = QtWidgets.QLabel('==ОШИБКИ==')
+    label_error.setStyleSheet("""
+        color: #2E3A59;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px;
+    """)
 
     '''=== Создаем строки ввода ==='''
 
@@ -180,8 +163,9 @@ if __name__ == '__main__':
                 color: #000000;
                  background-color: #FFFFFF;
                  font-size: 14px;
-                 border: 2px solid #7f8c8d;
+                 border: 1px solid #7f8c8d;
                  border-radius: 5px;
+    
              }
              QLineEdit::cursor {
                 background-color: #000000;
@@ -195,7 +179,7 @@ if __name__ == '__main__':
                     color: #000000;
                      background-color: #FFFFFF;
                      font-size: 14px;
-                     border: 2px solid #7f8c8d;
+                     border: 1px solid #7f8c8d;
                      border-radius: 5px;
                  }
                  QLineEdit::cursor {
@@ -211,7 +195,7 @@ if __name__ == '__main__':
                     color: #000000;
                      background-color: #FFFFFF;
                      font-size: 14px;
-                     border: 2px solid #7f8c8d;
+                     border: 1px solid #7f8c8d;
                      border-radius: 5px;
                  }
                  QLineEdit::cursor {
@@ -224,10 +208,10 @@ if __name__ == '__main__':
     line_port.setFixedWidth(100)
     line_port.setStyleSheet("""
                  QLineEdit {
-                    color: #000000;
+                     color: #000000;
                      background-color: #FFFFFF;
                      font-size: 14px;
-                     border: 2px solid #7f8c8d;
+                     border: 1px solid #7f8c8d;
                      border-radius: 5px;
                  }
                  QLineEdit::cursor {
@@ -239,15 +223,33 @@ if __name__ == '__main__':
     '''=== Создаем чек-бокс ==='''
 
     check_sms = QtWidgets.QCheckBox()
+    check_sms.setStyleSheet("""
+                QCheckBox::indicator {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #F0F2F5;
+                    border: 1px solid #D1D9E6;
+                    border-radius: 3px;
+                }
+            
+                QCheckBox::indicator:checked {
+                    background-color: #E0E7FF;
+                    border: 1px solid #4F46E5;
+                }
+            """)
+
 
     '''=== Создаем кнопку ==='''
 
     button1 = QtWidgets.QPushButton('Сделать плагины')
+    button1.setFixedHeight(40)
     button1.setStyleSheet("""
              QPushButton {
-                color: #000000;
-                background-color: #FFFFFF;
-                font-size: 14px;
+                color: #FFFFFF;
+                background-color: #4F46E5;
+                border: none;
+                border-radius: 6px;
+                font-size: 12px;
              }
          """)
     button1.clicked.connect(start_func)
