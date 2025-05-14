@@ -1,3 +1,5 @@
+from idlelib.debugobj import myrepr
+
 from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
 from datetime import datetime
@@ -5,20 +7,32 @@ from functions import *
 from exceptions_module import *
 
 
-
 def values_from_fields() -> tuple[list, str, str, int, bool]:
     '''В этой функции, мы получаем информацию со всех полей.
     Возвращаем кортеж с полученными значениями'''
 
-    user_stores = text_edit.toPlainText().strip().split('\n')
-    user_stores = list(map(lambda x: x.strip(), user_stores))
+    text_errors.clear()
 
-    user_api_key = line_api.text().strip()
-    user_brand_name = line_brand.text().strip()
-    user_port = line_port.text().strip()
-    sms = check_sms.isChecked()
+    try:
+        user_brand_name = correct_brand(line_brand.text().strip())
+    except MyError as e:
+        text_errors.append(f'Название бренда: {e}')
+    else:
+        try:
+            user_stores = text_edit.toPlainText().strip().split('\n')
+            user_stores = correct_stores_list(list(map(lambda x: x.strip(), user_stores)))
+        except MyError as e:
+            text_errors.append(f'Список торговых точек: {e}')
+        else:
+            try:
+                user_api_key = correct_api(line_api.text().strip())
+            except MyError as e:
+                text_errors.append(f'API ключ: {e}')
+            else:
+                user_port = line_port.text().strip()
+                sms = check_sms.isChecked()
 
-    return user_stores, user_api_key, user_brand_name, user_port, sms
+        return user_stores, user_api_key, user_brand_name, user_port, sms
 
 
 def start_func():
@@ -39,6 +53,7 @@ def start_func():
                 text_errors.append(message_error)
             else:
                 plagins_editor(shop_code, *values_from_fields())
+                corect_window.information(None, '', 'Плагины успешно созданы')
         except Exception as e:
             log.append(f'{current_date}\n')
             log.append(f'Тип ошибки: {type(e).__name__}\n')
@@ -56,12 +71,16 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication([])
 
     window = QtWidgets.QMainWindow()
-    window.setWindowTitle("MaKo v1.1")
+    window.setWindowTitle("MaKo v1.2")
     window.setFixedSize(800, 600)
     window.setStyleSheet("background-color: #F4F7F9;")
 
     central_widget = QtWidgets.QWidget()
     window.setCentralWidget(central_widget)
+
+    '''=== Создаем диалоговое окно ==='''
+
+    corect_window = QtWidgets.QMessageBox()
 
     '''=== Создаем поле для ввода текста ==='''
 
@@ -99,7 +118,7 @@ if __name__ == '__main__':
 
     '''=== Создаем лейблы ==='''
 
-    label_text = QtWidgets.QLabel('Список торговых точек')
+    label_text = QtWidgets.QLabel('Список торговых точек *')
     label_text.setStyleSheet("""
         color: #2E3A59;
         font-size: 14px;
@@ -107,7 +126,7 @@ if __name__ == '__main__':
         margin: 10px;
     """)
 
-    label_api = QtWidgets.QLabel('API ключ')
+    label_api = QtWidgets.QLabel('API ключ *')
     label_api.setStyleSheet("""
         color: #2E3A59;
         font-size: 14px;
@@ -115,7 +134,7 @@ if __name__ == '__main__':
         margin: 10px;
     """)
 
-    label_brand = QtWidgets.QLabel('Название бренда')
+    label_brand = QtWidgets.QLabel('Название бренда *')
     label_brand.setStyleSheet("""
         color: #2E3A59;
         font-size: 14px;
@@ -131,7 +150,7 @@ if __name__ == '__main__':
         margin: 10px;
     """)
 
-    label_shopcode = QtWidgets.QLabel('Начальный код точек')
+    label_shopcode = QtWidgets.QLabel('Начальный код точек *')
     label_shopcode.setStyleSheet("""
         color: #2E3A59;
         font-size: 14px;
@@ -238,7 +257,6 @@ if __name__ == '__main__':
                 }
             """)
 
-
     '''=== Создаем кнопку ==='''
 
     button1 = QtWidgets.QPushButton('Сделать плагины')
@@ -250,6 +268,13 @@ if __name__ == '__main__':
                 border: none;
                 border-radius: 6px;
                 font-size: 12px;
+             }
+             QPushButton:hover {
+                background-color: #6366F1;  /* немного светлее */
+             }
+
+             QPushButton:pressed {
+                background-color: #4338CA;  /* немного темнее */
              }
          """)
     button1.clicked.connect(start_func)

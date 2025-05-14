@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Добавлено:&#10;1. Логирование&#10;Исправлено:&#10;1. Подчищаются лишние пробелы, при вводе точек продаж">
-      <change afterPath="$PROJECT_DIR$/exceptions_module.py" afterDir="false" />
+    <list default="true" id="c1b5a2ea-6d5e-4e84-bef6-bb5f9da6290e" name="Changes" comment="Изменения:&#10;1. Обновлен пользовательский интерфейс&#10;2. Улучшена читаемость кода">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaKo_icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/images/MaKo_icon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resto.Front.Api.CloudLoyalty.dll.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceptions_module.py" beforeDir="false" afterPath="$PROJECT_DIR$/exceptions_module.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maxma_iiko_collab_icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/images/maxma_iiko_collab_icon.ico" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747059894000</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Изменения:&#10;1. Обновлен пользовательский интерфейс&#10;2. Улучшена читаемость кода">
+      <option name="closed" value="true" />
+      <created>1747140700545</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747140700545</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +225,7 @@
     <MESSAGE value="Добавлено:&#10;1. Иконки приложения" />
     <MESSAGE value="Добавлено:&#10;1. Окно для вывода ошибок&#10;2. Обработчик ввода значения для кода ТТ&#10;3. Вывод ошибки кода ТТ в окно ошибок" />
     <MESSAGE value="Добавлено:&#10;1. Логирование&#10;Исправлено:&#10;1. Подчищаются лишние пробелы, при вводе точек продаж" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;1. Логирование&#10;Исправлено:&#10;1. Подчищаются лишние пробелы, при вводе точек продаж" />
+    <MESSAGE value="Изменения:&#10;1. Обновлен пользовательский интерфейс&#10;2. Улучшена читаемость кода" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменения:&#10;1. Обновлен пользовательский интерфейс&#10;2. Улучшена читаемость кода" />
   </component>
 </project>
