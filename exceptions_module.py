@@ -36,11 +36,11 @@ def correct_stores_list(stores_list):
     if len(stores_list) == 1 and stores_list[0] == '':
         raise MyError('Список не может быть пустым')
     else:
-        if stores_list != list(set(stores_list)):
-            raise MyError('В списке есть повторяющиеся значения')
+        if any([row == '' for row in stores_list]):
+            raise MyError('В списке не может быть пустых строк')
         else:
-            if any([row == '' for row in stores_list]):
-                raise MyError('В списке не может быть пустых строк')
+            if len(stores_list) != len(set(stores_list)):
+                raise MyError('В списке есть повторяющиеся значения')
             else:
                 return stores_list
 

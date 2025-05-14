@@ -242,3 +242,45 @@
 14.05.2025 14:35:15
 Плагины успешно созданы
 ====================
+14.05.2025 16:41:10
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 16:41:21
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 16:41:33
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 17:20:31
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 17:21:04
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 17:21:07
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 17:21:29
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 17:22:57
+Тип ошибки: UnboundLocalError
+Текст ошибки: cannot access local variable 'user_api_key' where it is not associated with a value
+====================
+14.05.2025 17:37:41
+Тип ошибки: FileNotFoundError
+Текст ошибки: [Errno 2] No such file or directory: '/1/Названия и коды точек.txt'
+====================
+14.05.2025 17:39:13
+Плагины успешно созданы
+====================
+14.05.2025 17:42:53
+Плагины успешно созданы
+====================

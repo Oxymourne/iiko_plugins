@@ -11,14 +11,19 @@ def plagins_editor(shop_code:int, stores:list[str], key:str, brand:str, port:str
     '''
 
     os.mkdir(brand)
+    stores_codes_list = []
+
     for t_name in stores:
         shutil.copytree('Донор', f'{brand}/{t_name}')
-        config_changer(brand, t_name, key, shop_code, port, sms)
+        config_changer(brand, t_name, key, shop_code, port, sms, stores_codes_list)
         shop_code += 1
 
+    with open(f'{brand}/Названия и коды точек.txt', 'w', encoding='utf-8') as code_file:
+        max_len = len(max(stores_codes_list, key=lambda x: len(x[0])))
+        print(stores_codes_list)
 
 
-def config_changer(brand:str, t_name:str, key:str, shop_code:int, port:str, sms:bool):
+def config_changer(brand:str, t_name:str, key:str, shop_code:int, port:str, sms:bool, stores_codes_list):
     '''Второстепенная функция, которая:
     1. Открывает файл конфига
     2. Находит нужные строки
@@ -51,9 +56,11 @@ def config_changer(brand:str, t_name:str, key:str, shop_code:int, port:str, sms:
                     a[row_index] = f'{port}'.join(b)
 
             res_list.append(i)
+            stores_codes_list.append((t_name, shop_code))
 
         with open(f'{brand}/{t_name}/Resto.Front.Api.CloudLoyalty.V6.1.0.84/Resto.Front.Api.CloudLoyalty.dll.config',
                   'w', encoding='utf-8') as infile:
             infile.writelines(res_list)
+
 
 

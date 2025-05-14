@@ -1,2 +1,3 @@
-a = [1, 2, 1, 1, 1]
-print(all([x == 2 for x in a]))
+a = ['1', '11', '111']
+print(set(a))
+print(len(a), len(set(a)))
