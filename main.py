@@ -1,5 +1,3 @@
-from idlelib.debugobj import myrepr
-
 from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
 from datetime import datetime
@@ -7,7 +5,7 @@ from functions import *
 from exceptions_module import *
 
 
-def values_from_fields() -> tuple[list, str, str, int, bool]:
+def values_from_fields() -> tuple[list, str, str, str, bool]:
     '''В этой функции, мы получаем информацию со всех полей.
     Возвращаем кортеж с полученными значениями'''
 
@@ -270,11 +268,11 @@ if __name__ == '__main__':
                 font-size: 12px;
              }
              QPushButton:hover {
-                background-color: #6366F1;  /* немного светлее */
+                background-color: #6366F1;
              }
 
              QPushButton:pressed {
-                background-color: #4338CA;  /* немного темнее */
+                background-color: #4338CA;
              }
          """)
     button1.clicked.connect(start_func)
