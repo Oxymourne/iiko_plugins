@@ -50,17 +50,17 @@ def start_func():
                 message_error = f'Код точки: {e}'
                 text_errors.append(message_error)
             else:
+                log.append(f'{current_date}\n')
+                log.append('Плагины успешно созданы\n')
+                log.append(f'{'=' * 20}\n')
+                log_outfile.writelines(log)
+
                 plagins_editor(shop_code, *values_from_fields())
                 corect_window.information(None, '', 'Плагины успешно созданы')
-        except Exception as e:
+        except (Exception, MyError) as e:
             log.append(f'{current_date}\n')
             log.append(f'Тип ошибки: {type(e).__name__}\n')
             log.append(f'Текст ошибки: {e}\n')
-            log.append(f'{'=' * 20}\n')
-            log_outfile.writelines(log)
-        else:
-            log.append(f'{current_date}\n')
-            log.append('Плагины успешно созданы\n')
             log.append(f'{'=' * 20}\n')
             log_outfile.writelines(log)
 
